@@ -1,0 +1,33 @@
+{
+  "name": "@snode/engine.koa",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:clean && npm run build:all && npm run build:exts",
+    "build:all": "tsc && tsc -p tsconfig.esm.json",
+    "build:clean": "rm -rf dist/",
+    "build:exts": "renamer --path-element ext --find js --replace mjs dist/esm/*",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@koa/router": "^8.0.8",
+    "@odss/common": "1.0.0",
+    "@snode/common": "1.0.0",
+    "koa": "^2.11.0",
+    "ws": "^7.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "13.7.0",
+    "typescript": "3.7.5",
+    "renamer": "^1.1.4"
+  },
+  "main": "dist/node/index.js",
+  "module": "dist/esm/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/node/index.js",
+      "default": "./dist/esm/index.mjs"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "strict": false,
+        "types": [
+            "reflect-metadata"
+        ]
+    },
+    "files": [
+        "src/index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist/*"
+    ]
+}

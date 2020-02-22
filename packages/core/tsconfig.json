@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "esModuleInterop": true,
+        "experimentalDecorators":true,
+        "target": "esnext",
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": false,
+        "strict": false,
+        "outDir": "./dist/node",
+    },
+    "files": [
+        "src/main.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist/*"
+    ]
+}

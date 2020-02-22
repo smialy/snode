@@ -1,0 +1,45 @@
+{
+  "name": "@snode/common",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "source": "src/index.ts",
+  "main": "dist/common.js",
+  "module": "dist/common.mjs",
+  "types": "dist/common.d.ts",
+  "scripts": {
+    "build": "microbundle build --target node --tsconfig tsconfig.build.json -f es,cjs --no-compress --no-sourcemap",
+    "test": "qunit --require ts-node/register tests/*.ts",
+    "karma": "karma start --single-run",
+    "lint": "tslint src/*",
+    "prepare": "npm run build",
+    "version": "npm run build"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/common.js",
+      "default": "./dist/common.mjs"
+    }
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/qunit": "^2.9.0",
+    "@types/reflect-metadata": "^0.1.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-firefox-launcher": "^1.3.0",
+    "karma-qunit": "^4.0.0",
+    "karma-typescript": "^4.1.1",
+    "microbundle": "^v0.12.0-next.7",
+    "qunit": "^2.9.3",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.7.5"
+  },
+  "files": [
+    "dist/*.*",
+    "README.md"
+  ]
+}

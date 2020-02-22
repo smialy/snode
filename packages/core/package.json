@@ -1,0 +1,48 @@
+{
+  "name": "@snode/core",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run build:clean && npm run build:all && npm run build:exts",
+    "build:all": "tsc && tsc -p tsconfig.esm.json",
+    "build:clean": "rm -rf dist/",
+    "build:exts": "renamer --path-element ext --find js --replace mjs dist/esm/* dist/esm/**/**",
+    "test": "mocha --require ts-node/register --recursive test/**/*.test.ts",
+    "karma": "karma start --single-run",
+    "lint": "eslint src/**/*",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@odss/common": "1.0.0",
+    "@snode/common": "1.0.0",
+    "@stool/logging": "^3.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@snode/engine.koa": "1.0.0",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "13.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.2",
+    "@typescript-eslint/parser": "^2.19.2",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^7.0.1",
+    "prettier": "1.19.1",
+    "renamer": "^1.1.4",
+    "rimraf": "^3.0.2",
+    "ts-node": "8.6.2",
+    "tsc-watch": "^4.1.0",
+    "tsconfig-paths": "3.9.0",
+    "tslint": "6.0.0",
+    "typescript": "3.7.5"
+  },
+  "main": "dist/node/index.js",
+  "module": "dist/esm/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/node/index.js",
+      "default": "./dist/esm/index.mjs"
+    }
+  }
+}
